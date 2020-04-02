@@ -7,12 +7,10 @@ import java.util.Map;
 import java.util.Properties;
 
 public class AliExpressSite {
-    private DeveloperGuidePage devGuide;
-    private NavPage nav;
-    private ComponentReferenceLeftNavPage componentLeftNav;
-    private ComponentReferenceBodyPage componentBody;
-    private ComponentPage component;
-    private PlaygroundPage playground;
+    private SearchPage devGuide;
+    private PopUpPage nav;
+    private SearchResultsPage componentLeftNav;
+    private ArticlePage componentBody;
     private WebDriver driver;
     private Properties props;
 
@@ -22,40 +20,28 @@ public class AliExpressSite {
         this.props = new Properties();
     }
 
-    public DeveloperGuidePage devGuide() {
+    public SearchPage search() {
         if (devGuide == null);
-            devGuide = new DeveloperGuidePage(driver);
+            devGuide = new SearchPage(driver);
         return devGuide;
     }
 
-    public NavPage nav() {
+    public PopUpPage popUp() {
         if(nav == null)
-            nav = new NavPage(driver);
+            nav = new PopUpPage(driver);
         return nav;
     }
 
-    public ComponentReferenceLeftNavPage componentLeftNav() {
+    public SearchResultsPage searchResults() {
         if(componentLeftNav == null)
-            componentLeftNav = new ComponentReferenceLeftNavPage(driver);
+            componentLeftNav = new SearchResultsPage(driver);
         return componentLeftNav;
     }
 
-    public ComponentReferenceBodyPage componentBody() {
+    public ArticlePage article() {
         if(componentBody == null)
-            componentBody = new ComponentReferenceBodyPage(driver);
+            componentBody = new ArticlePage(driver);
         return componentBody;
-    }
-
-    public ComponentPage component() {
-        if(component == null)
-            component = new ComponentPage(driver);
-        return component;
-    }
-
-    public PlaygroundPage playground() {
-        if(playground == null)
-            playground = new PlaygroundPage(driver);
-        return playground;
     }
 
     public void addParameters(Map<String, String> data) {

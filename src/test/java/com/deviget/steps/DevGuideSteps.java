@@ -15,9 +15,4 @@ public class DevGuideSteps {
 		this.aliExpressSite = hooksClass.getAliExpressSite();
 	}
 
-    @Given("I navigate to Salesforce Developer page")
-    public void iNavigateToSalesforceDeveloperPage() {
-		aliExpressSite.devGuide().goTo(Constants.MAIN_URL);
-		assertTrue(aliExpressSite.devGuide().isAt());
-    }
 }

@@ -67,7 +67,5 @@ public class BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
     }
-
 }

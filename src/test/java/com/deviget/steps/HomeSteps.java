@@ -1,9 +1,19 @@
+package com.deviget.steps;
+
+import com.deviget.hooks.Hooks;
+import com.deviget.sites.AliExpressSite;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class HomeSteps {
+
+    AliExpressSite aliExpressSite;
+
+    public HomeSteps(Hooks hooks) {
+        this.aliExpressSite = hooks.getAliExpressSite();
+    }
 
     @Given("I navigate to Ali Express page")
     public void iNavigateToAliExpressPage() {
@@ -20,7 +30,7 @@ public class HomeSteps {
 
     }
 
-    @Then("The first item will have at least {int} available product")
+    @Then("The first product will have at least {int} available item")
     public void theFirstItemWillHaveAtLeastAvailableProduct(int minimumProducts) {
 
     }
@@ -29,7 +39,7 @@ public class HomeSteps {
     public void thereShouldBeAtLeastTwoRelatedProductAds(int  minimumAds) {
     }
 
-    @And("The product from the second ad should have at least {int} available product")
+    @And("The product from the second ad should have at least {int} available item")
     public void theProductFromTheSecondAdShouldHaveAtLeastAvailableProduct(int minimumProducts) {
     }
 }
