@@ -23,7 +23,7 @@ Other important classes are:
 * Hooks:  creates the setup and teardown methods, by starting the browser, initializing the site object and fetching properties.
 * Utils such as Constants, Locators and Util classes.
 
-##Running test
+## Running test
 
 Follow these steps to run the project:
 
