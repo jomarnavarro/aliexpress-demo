@@ -9,4 +9,4 @@ Feature: Article on related ads should have at least 1 item availability
     And I select the first article from the second page
     Then  The first product will have at least 1 available item
     And There should be at least 2 related product ads
-    And The product from the second ad should have at least 1 available item
+    And The product from ad 2 should have at least 1 available item

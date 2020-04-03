@@ -67,7 +67,7 @@ public class BasePage {
         sleep(Constants.SHORT_WAIT);
     }
 
-    protected void sleep(long time) {
+    public void sleep(long time) {
         try {
             Thread.sleep(time);
         } catch (InterruptedException e) {
@@ -77,9 +77,24 @@ public class BasePage {
 
     public void tryClick(WebElement elem) {
         int timeEllapsed = 0;
-        while(timeEllapsed < Constants.LONG_WAIT) {
+        while(timeEllapsed < Constants.MEDIUM_WAIT) {
             try {
                 elem.click();
+                break;
+            } catch (Exception e) {
+                this.sleep(Constants.TINY_WAIT);
+                timeEllapsed += Constants.TINY_WAIT;
+            }
+        }
+    }
+    public void tryClick(WebElement... elem) {
+        int timeEllapsed = 0;
+        int index = 0;
+        int length = elem.length;
+        while(timeEllapsed < Constants.MEDIUM_WAIT) {
+            try {
+                elem[index].click();
+                index = (index + 1) % length;
                 break;
             } catch (Exception e) {
                 this.sleep(Constants.TINY_WAIT);

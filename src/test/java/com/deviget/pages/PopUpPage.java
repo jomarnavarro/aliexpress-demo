@@ -27,7 +27,7 @@ public class PopUpPage extends BasePage {
     }
 
     public void dismissPopUpHome() {
-        tryClick(closePopUpIcon);
+        tryClick(closePopUpIcon, nextCloseIcon);
 
     }
 

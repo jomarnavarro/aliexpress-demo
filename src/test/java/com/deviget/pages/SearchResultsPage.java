@@ -30,7 +30,6 @@ public class SearchResultsPage extends BasePage {
                 )
         );
         scrollIntoView(articleList.get(articleList.size() - 1));
-        sleep(Constants.LONG_WAIT);
         wait.until(
                 ExpectedConditions.visibilityOfElementLocated(
                         By.cssSelector(nextPageButtonCss)
@@ -39,11 +38,12 @@ public class SearchResultsPage extends BasePage {
     }
 
     public void selectFirstArticle() {
-        wait.until(
-                ExpectedConditions.elementToBeClickable(
-                        By.cssSelector(itemLinkCss)
+        List<WebElement> articleList = wait.until(
+                ExpectedConditions.numberOfElementsToBeMoreThan(
+                        By.cssSelector(itemLinkCss), 1
                 )
-        ).click();
+        );
+        jsClick(articleList.get(0));
     }
 
 }
