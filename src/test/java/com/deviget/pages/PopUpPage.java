@@ -1,5 +1,6 @@
 package com.deviget.pages;
 
+import com.deviget.utils.Constants;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,6 +10,9 @@ public class PopUpPage extends BasePage {
 
     @FindBy(xpath = "//div[contains(@class, 'dialog')]//a[.='x']")
     WebElement closePopUpIcon;
+
+    @FindBy(css = ".next-dialog-close")
+    WebElement nextCloseIcon;
 
     @FindBy(xpath = "//div[contains(@class, 'dialog')]//h4")
     WebElement popUpHeader;
@@ -22,8 +26,12 @@ public class PopUpPage extends BasePage {
         return waitForElements(closePopUpIcon, popUpHeader);
     }
 
-    public void dismissPopUp() {
-        this.jsClick(closePopUpIcon);
+    public void dismissPopUpHome() {
+        tryClick(closePopUpIcon);
+
     }
 
+    public void dismissNextPopUp() {
+        tryClick(nextCloseIcon);
+    }
 }

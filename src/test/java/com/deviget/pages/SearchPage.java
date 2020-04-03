@@ -24,4 +24,14 @@ public class SearchPage extends BasePage {
 	public boolean isAt() {
 		return waitForElements(searchTxt, searchBtn);
 	}
+
+	public void goTo(String url) {
+		driver.get(url);
+	}
+
+	public void searchArticle(String article) {
+		searchTxt.clear();
+		searchTxt.sendKeys(article);
+		searchBtn.click();
+	}
 }

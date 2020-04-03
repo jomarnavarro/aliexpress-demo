@@ -24,9 +24,9 @@ public class Hooks {
 	public void before() {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(5,  TimeUnit.SECONDS);
 		aliExpressSite = new AliExpressSite(driver);
 		props = fetchProperties();
+		aliExpressSite.setParameters(props);
 	}
 
 	private Properties fetchProperties() {

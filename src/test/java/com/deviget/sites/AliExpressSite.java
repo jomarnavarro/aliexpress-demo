@@ -60,4 +60,7 @@ public class AliExpressSite {
         return this.props;
     }
 
+    public void setParameters(Properties props) {
+        this.props = props;
+    }
 }

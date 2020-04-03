@@ -1,6 +1,9 @@
 package com.deviget.utils;
 
 public class Constants {
+
+    public static final long TINY_WAIT = 50L;
+
     public static final long SHORT_WAIT = 1000L;
 
     public static final long MEDIUM_WAIT = 5000L;
@@ -22,5 +25,6 @@ public class Constants {
 
     public static final String NAME_COL = "Name";
 
-    public static final String PROP_PATH = "src/test/resources/props/sf.properties";
+    public static final String PROP_PATH = "src/test/resources/props/ae.properties";
+
 }

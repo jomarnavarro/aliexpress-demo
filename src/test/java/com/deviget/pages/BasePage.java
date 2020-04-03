@@ -23,6 +23,7 @@ public class BasePage {
 
     protected boolean waitForElements(WebElement ... elems) {
         for(WebElement w: elems) {
+            moveToElement(w);
             WebElement elem = wait.until(ExpectedConditions.elementToBeClickable(w));
             if (!elem.isDisplayed())
                 return false;
@@ -31,7 +32,7 @@ public class BasePage {
     }
 
     protected void jsClick(WebElement elem) {
-
+        wait.until(ExpectedConditions.visibilityOf(elem));
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem);
         sleep(Constants.SHORT_WAIT);
     }
@@ -56,6 +57,11 @@ public class BasePage {
         moveToElement(By.xpath(xpath));
     }
 
+    protected void scrollIntoView(WebElement element) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        sleep(Constants.SHORT_WAIT);
+    }
+
     protected void jsReset(WebElement elem) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].value = '';", elem);
         sleep(Constants.SHORT_WAIT);
@@ -66,6 +72,19 @@ public class BasePage {
             Thread.sleep(time);
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void tryClick(WebElement elem) {
+        int timeEllapsed = 0;
+        while(timeEllapsed < Constants.LONG_WAIT) {
+            try {
+                elem.click();
+                break;
+            } catch (Exception e) {
+                this.sleep(Constants.TINY_WAIT);
+                timeEllapsed += Constants.TINY_WAIT;
+            }
         }
     }
 }
